@@ -1,0 +1,125 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.square {
+  display: flex;
+  width: 1200px;
+  max-width: 95%;
+  height: 80vh;
+  background-color: #F7F9FA;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  .left-side {
+    flex: 1;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .subtitle {
+      font-size: 29px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .form {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .input-container {
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .input-field {
+          width: 100%;
+          padding: 17px 25px;
+          background-color: #f8f9fa;
+          border: 1px solid #a5a5a5;
+          border-radius: 30px;
+          font-size: 14px;
+          outline: none;
+          box-sizing: border-box;
+
+          &:focus {
+            border-color: #3478f6;
+          }
+        }
+      }
+
+      .buttons {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        button.primary {
+          padding: 18px 50px;
+          background-color: #3478f6;
+          color: white;
+          border: none;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: background 0.3s;
+
+          &:hover {
+            background-color: #5a9bf8;
+          }
+        }
+      }
+
+      .signup-text {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #888;
+
+        .signup-link {
+          color: #3478f6;
+          cursor: pointer;
+          text-decoration: underline;
+          margin-left: 5px;
+
+          &:hover {
+            color: #235ecf;
+          }
+        }
+      }
+
+      .error {
+        color: red;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+
+    .side-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+  }
+}

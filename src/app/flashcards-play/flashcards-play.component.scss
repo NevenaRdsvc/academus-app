@@ -1,0 +1,238 @@
+la-square {
+  position: relative;
+}
+
+.card-container {
+  top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  margin-left: 200px;
+  top: 80px;
+  justify-content: center;
+
+  .flashcard {
+    width: 700px;
+    height: 380px;
+    background-color: #007bff;
+    border-radius: 25px;
+    color: white;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .back {
+      background-color: #005fcc;
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+.stats {
+  position: absolute;
+  top: 50px;
+  right: 80px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+
+  .stat-red {
+    color: red;
+    font-weight: 500;
+  }
+
+  .stat-green {
+    color: green;
+    font-weight: 500;
+  }
+}
+
+.title-section {
+  position: absolute;
+  top: 10%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  h2 {
+    margin: 3px;
+    font-size: 24px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: auto;
+  margin-left: 430px;
+  position: relative;
+  margin-bottom: 100px;
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: #f0f2f5;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 26px;
+      height: 26px;
+      fill: #b3b3b3;
+      transition: fill 0.25s ease;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background: #e5e7eb;
+    }
+
+    &.eye:hover svg {
+      fill: #007bff;
+    }
+
+    &.check:hover svg {
+      fill: #27ae60;
+    }
+
+    &.xmark:hover svg {
+      fill: #e74c3c;
+    }
+
+    &.active.check svg {
+      fill: #27ae60;
+    }
+
+    &.active.xmark svg {
+      fill: #e74c3c;
+    }
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modal {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 50px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: popIn 0.3s ease;
+
+    img {
+      width: 100px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+
+      .confirm {
+        background: #007bff;
+        border: none;
+        color: white;
+        border-radius: 8px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #0065d3;
+        }
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,70 @@
+@use "../scss/mixins" as mixins;
+@use "../scss/variables" as variables;
+
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+background: linear-gradient(
+  135deg,
+  #DCEEFF 0%,   // skoro bela plava (kao jutarnje nebo)
+  #B3D8FF 40%,  // svetla pastelno plava
+  #A0C4FF 70%,  // još jedna nijansa meke plave
+  #E8F2FF 100%  // bela sa plavičastim tonom
+);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-color 0.4s ease, color 0.4s ease;
+
+  @include mixins.scrollbar;
+}
+
+:host-context(body.dark-mode) {
+  background-image: none !important;
+  background: linear-gradient(160deg, #0D1B2A 0%, #162239 50%, #1B263B 100%) !important;
+}
+
+.app-header {
+  position: relative;
+  z-index: 50;
+
+  .dark-mode-toggle {
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #2C80FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s;
+
+    img{
+
+      width: 40px;
+      padding: 5px;
+    }
+
+    i {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    &:hover {
+      background-color: #3A9BFF;
+      transform: scale(1.1);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

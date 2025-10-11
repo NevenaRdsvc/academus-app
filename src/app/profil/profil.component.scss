@@ -1,0 +1,79 @@
+.profil-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 16px;
+ 
+}
+
+.profil-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  .avatar-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #2C80FC;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .edit-avatar {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #2C80FC;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+      border: 2px solid #fff;
+      font-size: 16px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #3c87f7;
+      }
+    }
+  }
+
+  .nickname-input {
+    width: 200px;
+    padding: 10px 14px;
+    border-radius: 32px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 15px;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+  }
+
+  .profile-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+  }
+}

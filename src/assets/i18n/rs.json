@@ -1,0 +1,36 @@
+{
+  "info": {
+
+  },
+  "label": {
+    "Academus": "Academus",
+    "close": "Close"
+  },
+  "errors": {
+    "RequestInvalid": "",
+    "Unauthorized": "",
+    "RequirementsNotMet": "",
+    "IdentityError": "{{details}}",
+    "EntityDoesNotExist": "{{entityName}} ne postoji.",
+    "EntityAlreadyExists": "{{entityName}} već postoji.",
+    "InternalServerError": "{{details}}",
+    "InvalidCredentials": "Neispravni podaci.",
+    "EmptyFile": "",
+    "MaxFileSizeReached": "Neuspešno. Slika ne može biti veća od {{maxSizeInMb}} MB.",
+    "CanOnlyUploadPhotos": "",
+    "WrongAspectRatio": "",
+    "MissingAspectRatio": "",
+    "EmailNotSent": "Dogodila se greška, email nije poslat, pokusajte kasnije.",
+    "AlreadyConfirmedEmail": "Mail adresa je već potvrđena.",
+    "InvalidConfirmationCode": "Pogrešan kod za potvrdu.",
+    "InvalidGoogleAccount": "Ovaj Google nalog nije validan, prvo se registrujte.",
+    "ConfirmationCodeExpired": "Ovaj kod za potvrdu je istekao.",
+    "Name is required." : "Ime je obavezno."
+  },
+  "confirmMessages": {
+
+  },
+  "placeholders": {
+
+  }
+}

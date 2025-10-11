@@ -1,0 +1,42 @@
+<div class="square">
+
+  <div class="left-side">
+    <h2 class="subtitle">Napravi nalog</h2>
+    <div class="form">
+      <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="imePrezime"
+          placeholder="Unesite Vaše Ime i Prezime"
+          class="input-field" />
+      </div>
+      <div class="input-container">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          placeholder="Unesite Vaš Email"
+          class="input-field" />
+      </div>
+      <div class="input-container">
+        <input
+          type="password"
+          [(ngModel)]="password"
+          placeholder="Unesite Lozinku"
+          class="input-field" />
+      </div>
+      <div class="buttons">
+        <button class="primary" (click)="signUp()">Napravi nalog</button>
+      </div>
+      <p class="signup-text">
+        Već imate nalog? 
+        <span class="signup-link" (click)="goToLogin()">Vrati se na Login</span>
+      </p>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </div>
+  </div>
+
+  <div class="right-side">
+   <img src="assets/images/login-image.jpg" alt="Slika" class="side-image" />
+  </div>
+
+</div>

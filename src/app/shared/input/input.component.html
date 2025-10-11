@@ -1,0 +1,8 @@
+<div class="input-container">
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [(ngModel)]="value"
+    class="input-field" />
+  <img *ngIf="icon" [src]="icon" alt="Icon" class="input-icon" />
+</div>

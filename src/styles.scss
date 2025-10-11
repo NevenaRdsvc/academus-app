@@ -1,0 +1,597 @@
+@use "./scss/mixins";
+@use "./scss/_fonts.scss";
+@use "./scss/_material-restyling.scss";
+@use "./scss/_modals.scss";
+@use "./scss/_theme.scss";
+@use "./scss/_typography.scss";
+@use "./scss/_variables.scss";
+@use "./scss/_utility.scss";
+
+body {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+[role="button"] {
+  cursor: pointer;
+  user-select: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body.dark-mode {
+  background-image: none !important;
+  background: linear-gradient(160deg, #0D1B2A 0%, #162239 50%, #1B263B 100%) !important;
+  color: #E0E6ED;
+  transition: background 0.4s ease, color 0.4s ease;
+
+  .square {
+    background-color: #1E2A3F !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+
+  .square-menu {
+    background-color: #0B1526 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
+
+
+    .logo-title .title-academus {
+      background-color: transparent !important;
+      padding: 0 !important;
+    }
+
+    .menu-links a,
+    .log-out {
+      color: #E0E6ED !important;
+      background-color: transparent !important;
+
+      &:hover {
+        background-color: rgba(44, 128, 252, 0.15) !important;
+      }
+
+      &.active {
+        background-color: rgba(69, 143, 255, 0.25) !important;
+        color: #E0E6ED !important; 
+      }
+    }
+
+    .selected-faculty .selected-item {
+      color: #AAB4C3 !important;
+    }
+  }
+
+
+  .flashcard,
+  .faculty-item,
+  .card,
+  .exam-list .card {
+    background-color: #22324B !important;
+    color: #E0E6ED !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      background-color: #1f2c40 !important;
+    }
+
+    
+
+    span,
+    h3,
+    p {
+      color: #E0E6ED !important;
+    }
+  }
+
+  .flashcard-body{
+    img {
+      filter: brightness(30) invert(0) !important;
+    }
+  }
+
+  .faculty-location {
+    color: #E0E6ED !important;
+    opacity: 0.9;
+  }
+
+  textarea,
+  select,
+  input {
+    background-color: #162239 !important;
+    color: #E0E6ED !important;
+
+    &::placeholder {
+      color: #AAB4C3 !important;
+    }
+  }
+
+  button {
+    color: #fff !important;
+    border-radius: 8px;
+    border: none;
+    transition: background 0.25s ease;
+
+    &.selected {
+      background-color: #22c55e !important;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  label,
+  p,
+  span {
+    color: #E0E6ED !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2C80FC;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1B263B;
+  }
+
+  .message,
+  .confirm-box,
+  .faculty-confirm-box {
+    background-color: #324668 !important;
+    color: #E0E6ED !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+
+    button {
+      background-color: #2C80FC !important;
+
+      &:hover {
+        background-color: #3A9BFF !important;
+      }
+
+      &:last-child {
+        background-color: #2A354B !important;
+        color: #E0E6ED !important;
+
+        &:hover {
+          background-color: #4a6083 !important;
+        }
+      }
+    }
+  }
+
+
+  .notes-form {
+    background-color: #1E2A3F !important;
+
+    input,
+    textarea {
+      background-color: #162239 !important;
+      border: 1px solid #2E3A4F !important;
+      color: #E0E6ED !important;
+
+      &::placeholder {
+        color: #AAB4C3 !important;
+      }
+    }
+
+    .star-color-wrapper {
+    .favorite-toggle,
+    .color-button {
+      background-color: #3d4d69 !important;
+      i {
+        color: #E0E6ED !important; 
+      }
+
+      &:hover {
+        background-color: rgb(51, 72, 107) !important;
+      }
+    }
+  }
+
+     .color-palette{
+      background-color: #2E3A4F !important;
+     }
+
+    .note-options .add-btn {
+      background-color: #2C80FC !important;
+      color: #fff !important;
+    }
+  }
+
+  .notes-list .note-item {
+    color: #E0E6ED !important;
+    p{
+      color: black !important;
+    }
+    small{
+      color: black !important;
+    }
+    h3{
+      color: black !important;
+    }
+
+    img {
+      filter: brightness(10) invert(0.9);
+    }
+  }
+
+  .color-overlay .color-palette-popup {
+    background-color: #1E2A3F !important;
+
+    .color-circle {
+      border: 2px solid #2E3A4F !important;
+    }
+  }
+
+    .buttons {
+      .circle {
+        background-color: #263b61 !important; 
+      }
+
+      .circle.eye:hover {
+        background-color: #007bff !important; 
+      }
+
+      .circle.check:hover {
+        background-color: #27ae60 !important; 
+      }
+
+      .circle.xmark:hover {
+        background-color: #e74c3c !important; 
+      }
+
+      .circle svg {
+        fill: #E0E6ED !important;
+      }
+    }
+  
+  .flashcard {
+    .front {
+      background-color: #007bff !important;
+      color: #fff !important;
+    }
+
+    .back {
+      background-color: #005fcc !important; 
+      color: #fff !important;
+    }
+
+    .buttons{
+      background-color: #005fcc !important; 
+    }
+  }
+
+  .modal-backdrop {
+    background: rgba(0,0,0,0.6) !important;
+
+    .modal {
+      background-color: #1E2A3F !important;
+      color: #E0E6ED !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+
+      .modal-actions .confirm {
+        background-color: #2C80FC !important;
+
+      &:hover {
+        background-color: #3A9BFF !important;
+      }
+      }
+
+      .close-btn {
+        color: #ccc !important;
+
+        &:hover {
+          color: #fff !important;
+        }
+      }
+
+      p {
+        .known {
+          color: #27ae60 !important;
+        }
+        .unknown {
+          color: #e74c3c !important;
+        }
+      }
+    }
+  }
+
+
+  .flashcard-set {
+    background-color: #22324B !important;
+    color: #E0E6ED !important;
+
+    .set-name {
+      color: #E0E6ED !important;
+    }
+
+    img {
+      filter: brightness(0.85);
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    &.delete-mode {
+      outline: 5px solid #66a3ff;
+      outline-offset: -5px;
+    }
+
+    &.selected {
+      outline: 5px solid #ff6666;
+      outline-offset: -5px;
+    }
+  }
+
+  .new-flashcard .plus-item-wrapper {
+    background-color: #2C3E5C !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  p {
+    color: #E0E6ED !important;
+  }
+
+  .choose-text {
+    color: #AAB4C3 !important;
+  }
+
+  .actions .delete-mode-btn {
+    background-color: #2C80FC !important;
+    color: #fff !important;
+  }
+
+  .actions .confirm-delete-btn {
+    background-color: #ff3131 !important;
+    color: #fff !important;
+  }
+
+
+.square {
+  .exam-header {
+    h2 {
+      color: #E0E6ED !important;
+    }
+  }
+
+  .exam-list {
+    h4 {
+      color: #E0E6ED !important;
+    }
+
+    .year-grid button {
+      background-color: #22324B !important;
+      color: #3A9BFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #3A9BFF !important;
+        color: #fff !important;
+      }
+
+      &.active {
+        background-color: #3A9BFF !important;
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+.square {
+  .exam-header {
+    h2 {
+      color: #E0E6ED !important;
+    }
+  }
+
+  .wrapper {
+    .instructions {
+      background-color: #1E2A3F !important;
+      border: 1.5px solid #2C80FC !important;
+      color: #E0E6ED !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .question {
+      color: #E0E6ED !important;
+
+      .question-text {
+        color: #E0E6ED !important;
+      }
+
+      .answers {
+        .answer {
+          color: #E0E6ED !important;
+      
+          &.correct {
+            background-color: #2b7a0b33 !important;
+            color: #66ff7f !important;
+            font-weight: bold;
+            border-color: #27ae60 !important;
+          }
+
+          &.wrong {
+            background-color: #a3000020 !important;
+            color: #ff7b7b !important;
+            border-color: #e74c3c !important;
+          }
+        }
+      }
+
+      .show-answer-text {
+        color: #3A9BFF !important;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 5px;
+        transition: 0.2s;
+
+        &:hover {
+          text-decoration: underline;
+          color: #66a3ff !important;
+        }
+      }
+    }
+  } 
+}
+
+/* 🎨 Ulepšan i usklađen dark mode za event panel */
+.calendar-container {
+  .calendar-grid-wrapper {
+    background-color: #1A2238 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+
+    .month-nav {
+      span {
+        color: #E0E6ED !important;
+      }
+
+      .nav-btn:hover {
+        background: rgba(44, 128, 252, 0.2) !important;
+      }
+    }
+
+    .weekdays span {
+      color: #AAB4C3 !important;
+    }
+
+    .days .day {
+      background-color: transparent !important;
+      color: #E0E6ED !important;
+
+      &:hover {
+        background-color: rgba(44, 128, 252, 0.15) !important;
+      }
+
+      &.selected {
+        background-color: rgba(44, 128, 252, 0.25) !important;
+      }
+
+      .mini-event {
+        color: #fff !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      }
+
+      .mini-event.extra-events {
+        background-color: #555 !important;
+        color: #E0E6ED !important;
+      }
+    }
+  }
+  .event-panel {
+    background-color: #1A2238 !important; /* elegantna tamnoplava nijansa */
+    color: #E0E6ED !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px;
+    padding: 20px;
+
+    h3, h4, label, p, li, span {
+      color: #FFFFFF !important; /* bela slova za maksimalan kontrast */
+    }
+
+    input, textarea {
+      background-color: #10182B !important;
+      color: #E0E6ED !important;
+      border: 1px solid #2E3A4F !important;
+
+      &::placeholder {
+        color: #AAB4C3 !important;
+      }
+    }
+
+    .color-button {
+      background-color: #2C3E5C !important;
+      border: 1px solid #3A9BFF !important;
+
+      i {
+        color: #E0E6ED !important;
+      }
+
+      &:hover {
+        background-color: #3A9BFF !important;
+      }
+    }
+
+    .color-palette {
+      background-color: #22324B !important;
+      border: 1px solid #3A9BFF !important;
+      padding: 6px;
+      border-radius: 8px;
+
+      .color-circle {
+        border: 1px solid rgba(255,255,255,0.2) !important;
+      }
+    }
+
+    .event-list li {
+  
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+
+  /* ✅ Tekst sada sigurno ostaje beo */
+  color: #FFFFFF !important;
+
+  /* Sve unutar liste — bele boje */
+  p, span, h4, h5, h6, label, a {
+    color: #FFFFFF !important;
+  }
+
+  /* Ako imaš linkove, da ne budu plavi */
+  a {
+    text-decoration: none !important;
+  }
+
+  /* Ako imaš dugmad ili ikonice unutar stavke */
+  button, i {
+    color: #FFFFFF !important;
+  }
+
+  /* Ikonica za brisanje – ostaje svetla */
+  .delete-btn img {
+    filter: brightness(0) invert(1) !important;
+  }
+}
+
+    .add-btn {
+      background-color: #2C80FC !important;
+      color: #fff !important;
+      border: none !important;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #3A9BFF !important;
+      }
+    }
+  }
+}
+  
+}

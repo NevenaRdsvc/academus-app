@@ -1,0 +1,25 @@
+<la-square>
+
+  <la-header title="Profil" [backRoute]="'/ucenje'"></la-header>
+
+  <div class="profil-container">
+    <div class="profil-info">
+      <div class="avatar-wrapper">
+        <img [src]="avatarUrl" class="avatar" alt="Avatar">
+        <label class="edit-avatar">
+          ✎
+          <input type="file" (change)="onAvatarChange($event)" hidden>
+        </label>
+      </div>
+      <input type="text"
+        [value]="nickname"
+        (input)="onNicknameChange($event)"
+        placeholder="Unesi nadimak"
+        class="nickname-input"
+      >
+    </div>
+  </div>
+
+
+
+</la-square>

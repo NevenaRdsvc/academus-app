@@ -1,0 +1,39 @@
+<la-square>
+
+  <la-header [title]="currentSubject" [backRoute]="'/ucenje'"></la-header>
+
+  <div *ngFor="let item of items" class="collection-item">
+    <p>
+      <ng-container *ngFor="let part of splitContent(item.content)">
+        <span
+          [ngClass]="{
+          'search-highlight': isMatch(part),
+          'active-highlight': isActiveMatch(part)
+          }"
+          >
+          {{ part }}
+        </span>
+      </ng-container>
+    </p>
+  </div>
+
+  <div class="actions">
+    <button (click)="toggleSearch()" title="Search">
+      <i class="fa fa-search"></i>
+    </button>
+    <div *ngIf="searchActive" class="search-wrapper">
+      <input
+        type="text"
+        placeholder="Unesi reč..."
+        [(ngModel)]="searchQuery"
+        (input)="performSearch()"
+      />
+      <span class="search-result">
+        {{ searchResults.length ? currentSearchIndex + 1 : 0 }} / {{ searchResults.length }}
+      </span>
+      <button (click)="searchPrev()">&lt;</button>
+      <button (click)="searchNext()">&gt;</button>
+    </div>
+  </div>
+
+</la-square>

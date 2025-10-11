@@ -1,0 +1,42 @@
+la-square {
+  h2 {
+    margin-bottom: 10px;
+    margin-top: 70px;
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  h3 {
+    margin-top: 40px;
+  }
+
+  la-input {
+    width: 1020px;
+    margin-top: 20px;
+  }
+
+  .sort-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 1100px;
+
+    .sort-button {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 30%;
+      background-color: var(--alt);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      cursor: pointer;
+
+      .sort-icon {
+        align-items: center;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

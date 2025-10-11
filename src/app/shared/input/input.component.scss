@@ -1,0 +1,36 @@
+.input-container {
+  position: relative;
+  width: 110%;
+  border-radius: 30px;
+  background-color: #F1F1F1;
+  height: 45px; 
+  padding: 0 12px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  text-align: left;
+  align-items: flex-start;
+  height: 100%;
+  padding: 0 900px 0 22px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+}
+
+.input-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  display: block;
+}
+
+
+:host-context(body.dark-mode) .input-container {
+  background-color: #162239;
+}

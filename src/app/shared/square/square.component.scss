@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.square {
+  display: flex;
+  justify-content: space-between;
+  width: 170vh;
+  height: 90vh;
+  border-radius: 30px;
+  background-color: #F7F9FA;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden; 
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+  margin-left: 100px;
+  position: relative;
+  
+  overflow-y: auto;
+  max-height: 90vh; 
+  padding-right: 10px; 
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

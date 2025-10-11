@@ -1,0 +1,12 @@
+<la-square>
+  <h2>Fakulteti</h2>
+
+  <la-input
+    [type]="'text'"
+    [placeholder]="'Pretraži fakultet'"
+    [icon]="'assets/images/logo-search.png'"
+    [(value)]="searchQuery">
+  </la-input>
+
+  <la-faculties-list [searchQuery]="searchQuery"></la-faculties-list>
+</la-square>
