@@ -4,11 +4,11 @@ la-square {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      transform: translate(-50%, -50%);
       text-align: center;
 
       img {
@@ -26,18 +26,18 @@ la-square {
 
     &.faculty-section {
       .faculty-banner {
-        margin-top: 40px;
         position: relative;
-        width: 100%;
-        height: 250px;
-        background-size: cover;
-        background-position: center;
-        border-radius: 20px;
-        margin-bottom: 20px;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        width: 105%;
+        height: 250px;
+        margin-top: 90px;
+        margin-bottom: 60px;
         margin-left: 10px;
+        border-radius: 20px;
+        background-position: center;
+        background-size: cover;
 
         .faculty-banner-text {
           text-align: center;
@@ -59,10 +59,10 @@ la-square {
   }
 
   h2 {
+    margin: 0 0 10px;
     font-size: 20px;
-    margin: 0 0 10px 0;
-    text-align: center;
     color: var(--white);
+    text-align: center;
   }
 
   p {

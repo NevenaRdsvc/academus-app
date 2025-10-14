@@ -1,10 +1,17 @@
 @use "./scss/mixins";
+
 @use "./scss/_fonts.scss";
+
 @use "./scss/_material-restyling.scss";
+
 @use "./scss/_modals.scss";
+
 @use "./scss/_theme.scss";
+
 @use "./scss/_typography.scss";
+
 @use "./scss/_variables.scss";
+
 @use "./scss/_utility.scss";
 
 body {
@@ -32,33 +39,104 @@ body {
 }
 
 body.dark-mode {
+  color: #e0e6ed;
+  background: linear-gradient(160deg, #0d1b2a 0%, #162239 50%, #1b263b 100%) !important;
   background-image: none !important;
-  background: linear-gradient(160deg, #0D1B2A 0%, #162239 50%, #1B263B 100%) !important;
-  color: #E0E6ED;
+  background-color: #1e2a3f;
   transition: background 0.4s ease, color 0.4s ease;
 
   .square {
-    background-color: #1E2A3F !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #1e2a3f !important;
+
+    .exam-header h2 {
+      color: #e0e6ed !important;
+    }
+
+    .exam-list {
+      h4 {
+        color: #e0e6ed !important;
+      }
+
+      .year-grid button {
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        color: #3a9bff !important;
+        background-color: #22324b !important;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: #ffffff !important;
+          background-color: #3a9bff !important;
+        }
+
+        &.active {
+          color: #ffffff !important;
+          background-color: #3a9bff !important;
+        }
+      }
+    }
+
+    .wrapper {
+      .instructions {
+        border: 1.5px solid #2c80fc !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        color: #e0e6ed !important;
+        background-color: #1e2a3f !important;
+      }
+
+      .question {
+        color: #e0e6ed !important;
+
+        .question-text {
+          color: #e0e6ed !important;
+        }
+
+        .answers .answer {
+          color: #e0e6ed !important;
+
+          &.correct {
+            font-weight: bold;
+            color: #66ff7f !important;
+            background-color: #2b7a0b33 !important;
+            border-color: #27ae60 !important;
+          }
+
+          &.wrong {
+            color: #ff7b7b !important;
+            background-color: #a3000020 !important;
+            border-color: #e74c3c !important;
+          }
+        }
+
+        .show-answer-text {
+          margin-top: 5px;
+          font-weight: bold;
+          color: #3a9bff !important;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            color: #66a3ff !important;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 
-
   .square-menu {
-    background-color: #0B1526 !important;
     border-right: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05);
+    background-color: #0b1526 !important;
     transition: background-color 0.3s ease;
 
-
     .logo-title .title-academus {
-      background-color: transparent !important;
       padding: 0 !important;
+      background-color: transparent !important;
     }
 
     .menu-links a,
     .log-out {
-      color: #E0E6ED !important;
+      color: #e0e6ed !important;
       background-color: transparent !important;
 
       &:hover {
@@ -66,65 +144,60 @@ body.dark-mode {
       }
 
       &.active {
+        color: #e0e6ed !important;
         background-color: rgba(69, 143, 255, 0.25) !important;
-        color: #E0E6ED !important; 
       }
     }
 
     .selected-faculty .selected-item {
-      color: #AAB4C3 !important;
+      color: #aab4c3 !important;
     }
   }
-
 
   .flashcard,
   .faculty-item,
   .card,
   .exam-list .card {
-    background-color: #22324B !important;
-    color: #E0E6ED !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    color: #e0e6ed !important;
+    background-color: #22324b !important;
 
     &:hover {
       background-color: #1f2c40 !important;
     }
 
-    
-
     span,
     h3,
     p {
-      color: #E0E6ED !important;
+      color: #e0e6ed !important;
     }
   }
 
-  .flashcard-body{
-    img {
-      filter: brightness(30) invert(0) !important;
-    }
+  .flashcard-body img {
+    filter: brightness(30) invert(0) !important;
   }
 
   .faculty-location {
-    color: #E0E6ED !important;
+    color: #e0e6ed !important;
     opacity: 0.9;
   }
 
   textarea,
   select,
   input {
+    color: #e0e6ed !important;
     background-color: #162239 !important;
-    color: #E0E6ED !important;
 
     &::placeholder {
-      color: #AAB4C3 !important;
+      color: #aab4c3 !important;
     }
   }
 
   button {
-    color: #fff !important;
-    border-radius: 8px;
     border: none;
+    border-radius: 8px;
+    color: #ffffff !important;
     transition: background 0.25s ease;
 
     &.selected {
@@ -138,7 +211,7 @@ body.dark-mode {
   label,
   p,
   span {
-    color: #E0E6ED !important;
+    color: #e0e6ed !important;
   }
 
   ::-webkit-scrollbar {
@@ -146,32 +219,32 @@ body.dark-mode {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #2C80FC;
     border-radius: 10px;
+    background: #2c80fc;
   }
 
   ::-webkit-scrollbar-track {
-    background: #1B263B;
+    background: #1b263b;
   }
 
   .message,
   .confirm-box,
   .faculty-confirm-box {
-    background-color: #324668 !important;
-    color: #E0E6ED !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    color: #e0e6ed !important;
+    background-color: #324668 !important;
 
     button {
-      background-color: #2C80FC !important;
+      background-color: #2c80fc !important;
 
       &:hover {
-        background-color: #3A9BFF !important;
+        background-color: #3a9bff !important;
       }
 
       &:last-child {
-        background-color: #2A354B !important;
-        color: #E0E6ED !important;
+        color: #e0e6ed !important;
+        background-color: #2a354b !important;
 
         &:hover {
           background-color: #4a6083 !important;
@@ -180,54 +253,51 @@ body.dark-mode {
     }
   }
 
-
   .notes-form {
-    background-color: #1E2A3F !important;
+    background-color: #1e2a3f !important;
 
     input,
     textarea {
+      border: 1px solid #2e3a4f !important;
+      color: #e0e6ed !important;
       background-color: #162239 !important;
-      border: 1px solid #2E3A4F !important;
-      color: #E0E6ED !important;
 
       &::placeholder {
-        color: #AAB4C3 !important;
+        color: #aab4c3 !important;
       }
     }
 
     .star-color-wrapper {
-    .favorite-toggle,
-    .color-button {
-      background-color: #3d4d69 !important;
-      i {
-        color: #E0E6ED !important; 
-      }
+      .favorite-toggle,
+      .color-button {
+        background-color: #3d4d69 !important;
 
-      &:hover {
-        background-color: rgb(51, 72, 107) !important;
+        i {
+          color: #e0e6ed !important;
+        }
+
+        &:hover {
+          background-color: rgb(51, 72, 107) !important;
+        }
       }
     }
-  }
 
-     .color-palette{
-      background-color: #2E3A4F !important;
-     }
+    .color-palette {
+      background-color: #2e3a4f !important;
+    }
 
     .note-options .add-btn {
-      background-color: #2C80FC !important;
-      color: #fff !important;
+      color: #ffffff !important;
+      background-color: #2c80fc !important;
     }
   }
 
   .notes-list .note-item {
-    color: #E0E6ED !important;
-    p{
-      color: black !important;
-    }
-    small{
-      color: black !important;
-    }
-    h3{
+    color: #e0e6ed !important;
+
+    p,
+    small,
+    h3 {
       color: black !important;
     }
 
@@ -237,72 +307,72 @@ body.dark-mode {
   }
 
   .color-overlay .color-palette-popup {
-    background-color: #1E2A3F !important;
+    background-color: #1e2a3f !important;
 
     .color-circle {
-      border: 2px solid #2E3A4F !important;
+      border: 2px solid #2e3a4f !important;
     }
   }
 
-    .buttons {
-      .circle {
-        background-color: #263b61 !important; 
+  .buttons {
+    .circle {
+      background-color: #263b61 !important;
+
+      &.eye:hover {
+        background-color: #007bff !important;
       }
 
-      .circle.eye:hover {
-        background-color: #007bff !important; 
+      &.check:hover {
+        background-color: #27ae60 !important;
       }
 
-      .circle.check:hover {
-        background-color: #27ae60 !important; 
+      &.xmark:hover {
+        background-color: #e74c3c !important;
       }
 
-      .circle.xmark:hover {
-        background-color: #e74c3c !important; 
-      }
-
-      .circle svg {
-        fill: #E0E6ED !important;
+      svg {
+        fill: #e0e6ed !important;
       }
     }
-  
+  }
+
   .flashcard {
     .front {
+      color: #ffffff !important;
       background-color: #007bff !important;
-      color: #fff !important;
     }
 
     .back {
-      background-color: #005fcc !important; 
-      color: #fff !important;
+      color: #ffffff !important;
+      background-color: #005fcc !important;
     }
 
-    .buttons{
-      background-color: #005fcc !important; 
+    .buttons {
+      background-color: #005fcc !important;
     }
   }
 
   .modal-backdrop {
-    background: rgba(0,0,0,0.6) !important;
+    background: rgba(0, 0, 0, 0.6) !important;
 
     .modal {
-      background-color: #1E2A3F !important;
-      color: #E0E6ED !important;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      color: #e0e6ed !important;
+      background-color: #1e2a3f !important;
 
       .modal-actions .confirm {
-        background-color: #2C80FC !important;
+        background-color: #2c80fc !important;
 
-      &:hover {
-        background-color: #3A9BFF !important;
-      }
+        &:hover {
+          background-color: #3a9bff !important;
+        }
       }
 
       .close-btn {
-        color: #ccc !important;
+        color: #cccccc !important;
 
         &:hover {
-          color: #fff !important;
+          color: #ffffff !important;
         }
       }
 
@@ -310,6 +380,7 @@ body.dark-mode {
         .known {
           color: #27ae60 !important;
         }
+
         .unknown {
           color: #e74c3c !important;
         }
@@ -317,13 +388,12 @@ body.dark-mode {
     }
   }
 
-
   .flashcard-set {
-    background-color: #22324B !important;
-    color: #E0E6ED !important;
+    color: #e0e6ed !important;
+    background-color: #22324b !important;
 
     .set-name {
-      color: #E0E6ED !important;
+      color: #e0e6ed !important;
     }
 
     img {
@@ -331,8 +401,8 @@ body.dark-mode {
     }
 
     &:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
       transform: translateY(-5px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
     &.delete-mode {
@@ -347,251 +417,175 @@ body.dark-mode {
   }
 
   .new-flashcard .plus-item-wrapper {
-    background-color: #2C3E5C !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #2c3e5c !important;
   }
 
   p {
-    color: #E0E6ED !important;
+    color: #e0e6ed !important;
   }
 
   .choose-text {
-    color: #AAB4C3 !important;
+    color: #aab4c3 !important;
   }
 
-  .actions .delete-mode-btn {
-    background-color: #2C80FC !important;
-    color: #fff !important;
-  }
+  .actions {
+    .delete-mode-btn {
+      color: #ffffff !important;
+      background-color: #2c80fc !important;
+    }
 
-  .actions .confirm-delete-btn {
-    background-color: #ff3131 !important;
-    color: #fff !important;
-  }
-
-
-.square {
-  .exam-header {
-    h2 {
-      color: #E0E6ED !important;
+    .confirm-delete-btn {
+      color: #ffffff !important;
+      background-color: #ff3131 !important;
     }
   }
 
-  .exam-list {
-    h4 {
-      color: #E0E6ED !important;
-    }
-
-    .year-grid button {
-      background-color: #22324B !important;
-      color: #3A9BFF !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
-      transition: all 0.2s ease;
-
-      &:hover {
-        background-color: #3A9BFF !important;
-        color: #fff !important;
-      }
-
-      &.active {
-        background-color: #3A9BFF !important;
-        color: #fff !important;
-      }
-    }
-  }
-}
-
-.square {
-  .exam-header {
-    h2 {
-      color: #E0E6ED !important;
+  .pomodoro-card {
+    .buttons {
+      color: black;
     }
   }
 
-  .wrapper {
-    .instructions {
-      background-color: #1E2A3F !important;
-      border: 1.5px solid #2C80FC !important;
-      color: #E0E6ED !important;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    }
+  .calendar-container {
+    .calendar-grid-wrapper {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+      background-color: #1a2238 !important;
 
-    .question {
-      color: #E0E6ED !important;
+      .month-nav {
+        span {
+          color: #e0e6ed !important;
+        }
 
-      .question-text {
-        color: #E0E6ED !important;
-      }
-
-      .answers {
-        .answer {
-          color: #E0E6ED !important;
-      
-          &.correct {
-            background-color: #2b7a0b33 !important;
-            color: #66ff7f !important;
-            font-weight: bold;
-            border-color: #27ae60 !important;
-          }
-
-          &.wrong {
-            background-color: #a3000020 !important;
-            color: #ff7b7b !important;
-            border-color: #e74c3c !important;
-          }
+        .nav-btn:hover {
+          background: rgba(44, 128, 252, 0.2) !important;
         }
       }
 
-      .show-answer-text {
-        color: #3A9BFF !important;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 5px;
-        transition: 0.2s;
+      .weekdays span {
+        color: #aab4c3 !important;
+      }
+
+      .days .day {
+        color: #e0e6ed !important;
+        background-color: transparent !important;
 
         &:hover {
-          text-decoration: underline;
-          color: #66a3ff !important;
+          background-color: rgba(44, 128, 252, 0.15) !important;
+        }
+
+        &.selected {
+          background-color: rgba(44, 128, 252, 0.25) !important;
+        }
+
+        .mini-event {
+          border: 1px solid rgba(255, 255, 255, 0.05) !important;
+          color: #ffffff !important;
+        }
+
+        .mini-event.extra-events {
+          color: #e0e6ed !important;
+          background-color: #555555 !important;
         }
       }
     }
-  } 
-}
 
-/* 🎨 Ulepšan i usklađen dark mode za event panel */
-.calendar-container {
-  .calendar-grid-wrapper {
-    background-color: #1A2238 !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    .event-panel {
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
+      color: #e0e6ed !important;
+      background-color: #1a2238 !important;
 
-    .month-nav {
+      h3,
+      h4,
+      label,
+      p,
+      li,
       span {
-        color: #E0E6ED !important;
+        color: #ffffff !important;
       }
 
-      .nav-btn:hover {
-        background: rgba(44, 128, 252, 0.2) !important;
-      }
-    }
+      input,
+      textarea {
+        border: 1px solid #2e3a4f !important;
+        color: #e0e6ed !important;
+        background-color: #10182b !important;
 
-    .weekdays span {
-      color: #AAB4C3 !important;
-    }
-
-    .days .day {
-      background-color: transparent !important;
-      color: #E0E6ED !important;
-
-      &:hover {
-        background-color: rgba(44, 128, 252, 0.15) !important;
+        &::placeholder {
+          color: #aab4c3 !important;
+        }
       }
 
-      &.selected {
-        background-color: rgba(44, 128, 252, 0.25) !important;
+      .color-button {
+        border: 1px solid #3a9bff !important;
+        background-color: #2c3e5c !important;
+
+        i {
+          color: #e0e6ed !important;
+        }
+
+        &:hover {
+          background-color: #3a9bff !important;
+        }
       }
 
-      .mini-event {
-        color: #fff !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      .color-palette {
+        padding: 6px;
+        border: 1px solid #3a9bff !important;
+        border-radius: 8px;
+        background-color: #22324b !important;
+
+        .color-circle {
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
       }
 
-      .mini-event.extra-events {
-        background-color: #555 !important;
-        color: #E0E6ED !important;
-      }
-    }
-  }
-  .event-panel {
-    background-color: #1A2238 !important; /* elegantna tamnoplava nijansa */
-    color: #E0E6ED !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    border-radius: 12px;
-    padding: 20px;
+      .event-list li {
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+        color: #ffffff !important;
+        transition: background-color 0.25s ease, transform 0.15s ease;
 
-    h3, h4, label, p, li, span {
-      color: #FFFFFF !important; /* bela slova za maksimalan kontrast */
-    }
+        p,
+        span,
+        h4,
+        h5,
+        h6,
+        label,
+        a {
+          color: #ffffff !important;
+        }
 
-    input, textarea {
-      background-color: #10182B !important;
-      color: #E0E6ED !important;
-      border: 1px solid #2E3A4F !important;
+        a {
+          text-decoration: none !important;
+        }
 
-      &::placeholder {
-        color: #AAB4C3 !important;
-      }
-    }
+        button,
+        i {
+          color: #ffffff !important;
+        }
 
-    .color-button {
-      background-color: #2C3E5C !important;
-      border: 1px solid #3A9BFF !important;
-
-      i {
-        color: #E0E6ED !important;
+        .delete-btn img {
+          filter: brightness(0) invert(1) !important;
+        }
       }
 
-      &:hover {
-        background-color: #3A9BFF !important;
-      }
-    }
+      .add-btn {
+        padding: 8px 12px;
+        border: none !important;
+        border-radius: 8px;
+        font-weight: 600;
+        color: #ffffff !important;
+        background-color: #2c80fc !important;
+        transition: background-color 0.3s ease;
 
-    .color-palette {
-      background-color: #22324B !important;
-      border: 1px solid #3A9BFF !important;
-      padding: 6px;
-      border-radius: 8px;
-
-      .color-circle {
-        border: 1px solid rgba(255,255,255,0.2) !important;
-      }
-    }
-
-    .event-list li {
-  
-  border-radius: 10px;
-  margin-bottom: 8px;
-  padding: 10px 12px;
-  transition: background-color 0.25s ease, transform 0.15s ease;
-
-  /* ✅ Tekst sada sigurno ostaje beo */
-  color: #FFFFFF !important;
-
-  /* Sve unutar liste — bele boje */
-  p, span, h4, h5, h6, label, a {
-    color: #FFFFFF !important;
-  }
-
-  /* Ako imaš linkove, da ne budu plavi */
-  a {
-    text-decoration: none !important;
-  }
-
-  /* Ako imaš dugmad ili ikonice unutar stavke */
-  button, i {
-    color: #FFFFFF !important;
-  }
-
-  /* Ikonica za brisanje – ostaje svetla */
-  .delete-btn img {
-    filter: brightness(0) invert(1) !important;
-  }
-}
-
-    .add-btn {
-      background-color: #2C80FC !important;
-      color: #fff !important;
-      border: none !important;
-      border-radius: 8px;
-      padding: 8px 12px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: #3A9BFF !important;
+        &:hover {
+          background-color: #3a9bff !important;
+        }
       }
     }
   }
-}
-  
 }

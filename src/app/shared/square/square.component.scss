@@ -10,34 +10,34 @@
 .square {
   display: flex;
   justify-content: space-between;
-  width: 170vh;
-  height: 90vh;
-  border-radius: 30px;
-  background-color: #F7F9FA;
+  width: 180vh;
+  height: 100vh;
+  overflow: hidden;
+
+  // border-radius: 30px;
+
+  // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: #f7f9fa;
   gap: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  overflow: hidden; 
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
-  margin-left: 100px;
-  position: relative;
-  
-  overflow-y: auto;
-  max-height: 90vh; 
-  padding-right: 10px; 
+  max-height: 100vh;
   box-sizing: border-box;
-
-  &::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; 
-  }
-
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-left: 100px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
 }

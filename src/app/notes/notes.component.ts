@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SquareComponent } from '../shared/square/square.component';
+
 import { HeaderComponent } from '../shared/header/header.component';
 import { MessageComponent } from '../shared/message/message.component';
+import { NoteService } from '../shared/services/note.service';
+import { SquareComponent } from '../shared/square/square.component';
 
 interface Note {
   title: string;
@@ -14,7 +16,7 @@ interface Note {
 }
 
 @Component({
-  selector: 'app-notes',
+  selector: 'la-notes',
   standalone: true,
   imports: [CommonModule, FormsModule, SquareComponent, HeaderComponent, MessageComponent],
   templateUrl: './notes.component.html',
@@ -34,8 +36,16 @@ export class NotesComponent implements OnInit {
 
   notes: Note[] = [];
 
+  constructor(private noteService: NoteService) {
+
+  }
+
   ngOnInit() {
     this.loadNotes();
+    this.noteService.getNotes().subscribe({
+      next: notes => console.log(notes),
+      error: error => console.log(error)
+    });
   }
 
 

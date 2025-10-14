@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+
+import { MessageComponent } from '../shared/message/message.component';
 import { Faculty, FacultyService } from '../shared/services/faculty.service';
 import { MessageService } from '../shared/services/message.service';
-import { MessageComponent } from '../shared/message/message.component';
 
 @Component({
   selector: 'la-faculties-list',
@@ -17,10 +18,18 @@ export class FacultiesListComponent {
   technicalTitle = 'Tehnički Fakulteti';
   medicalTitle = 'Medicinski Fakulteti';
   pharmacyTitle = 'Farmaceutski Fakulteti';
+  artTitle = 'Umetnički Fakulteti';
+  socialTitle = 'Društveni Fakulteti';
+  economicTitle = 'Ekonomski Fakulteti';
+  sportsTitle = 'Sportski Fakulteti';
 
   technicalFaculties: Faculty[] = [];
   medicalFaculties: Faculty[] = [];
   pharmacyFaculties: Faculty[] = [];
+  artFaculties: Faculty[] = [];
+  socialFaculties: Faculty[] = [];
+  economicFaculties: Faculty[] = [];
+  sportsFaculties: Faculty[] = [];
 
   showLocalConfirm = false;
   localConfirmMessage = '';
@@ -31,12 +40,15 @@ export class FacultiesListComponent {
     private messageService: MessageService
   ) {
     const all = facultyService.getAllFaculties();
-    this.technicalFaculties = all.filter(f => f.type === 'technical');
+     this.technicalFaculties = all.filter(f => f.type === 'technical');
     this.medicalFaculties = all.filter(f => f.type === 'medical');
     this.pharmacyFaculties = all.filter(f => f.type === 'pharmacy');
+    this.artFaculties = all.filter(f => f.type === 'art');
+    this.socialFaculties = all.filter(f => f.type === 'social');
+    this.economicFaculties = all.filter(f => f.type === 'economic');
+    this.sportsFaculties = all.filter(f => f.type === 'sports');
   }
-
-  async openConfirmation(faculty: Faculty) {
+async openConfirmation(faculty: Faculty) {
     const action = this.isSelected(faculty) ? 'deselect' : 'select';
     const msg = action === 'select'
       ? 'Da li želite da se prijavite na ovaj kurs?'
@@ -46,7 +58,6 @@ export class FacultiesListComponent {
     try {
       confirmed = await this.messageService.confirm(msg);
     } catch {
-
       confirmed = await this.localConfirm(msg);
     }
 
@@ -68,17 +79,14 @@ export class FacultiesListComponent {
     });
   }
 
-  get filteredTechnical() {
-    return this.filterFaculties(this.technicalFaculties);
-  }
-
-  get filteredMedical() {
-    return this.filterFaculties(this.medicalFaculties);
-  }
-
-  get filteredPharmacy() {
-    return this.filterFaculties(this.pharmacyFaculties);
-  }
+  // Filterovane liste sa searchQuery
+  get filteredTechnical() { return this.filterFaculties(this.technicalFaculties); }
+  get filteredMedical() { return this.filterFaculties(this.medicalFaculties); }
+  get filteredPharmacy() { return this.filterFaculties(this.pharmacyFaculties); }
+  get filteredArt() { return this.filterFaculties(this.artFaculties); }
+  get filteredSocial() { return this.filterFaculties(this.socialFaculties); }
+  get filteredEconomic() { return this.filterFaculties(this.economicFaculties); }
+  get filteredSports() { return this.filterFaculties(this.sportsFaculties); }
 
   private filterFaculties(faculties: Faculty[]): Faculty[] {
     if (!this.searchQuery.trim()) return faculties;

@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { UserRegisterModel } from '../shared/models/user';
+import { AccountService } from '../shared/services/account.service';
 
 @Component({
   selector: 'la-sign-up',
@@ -11,23 +14,26 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
-  imePrezime: string = '';
-  email: string = '';
-  password: string = '';
   errorMessage: string = '';
+  model: UserRegisterModel = {
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: ''
+  };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private accountService: AccountService) { }
 
   signUp(): void {
-    if (!this.email || !this.password || !this.imePrezime) {
+    if (!this.model.email || !this.model.password || !this.model.firstName || !this.model.lastName) {
       this.errorMessage = 'Popunite sva polja!';
       return;
     }
 
-    const user = { imePrezime: this.imePrezime, email: this.email, password: this.password };
-    localStorage.setItem('user', JSON.stringify(user));
-    this.errorMessage = '';
-    this.router.navigate(['/home']);
+    this.accountService.signUp(this.model).subscribe({
+      next: _ =>     this.router.navigate(['/home']),
+      error: errors => console.log(errors)
+    });
   }
 
   goToLogin(): void {

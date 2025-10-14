@@ -3,18 +3,31 @@
   <la-header [title]="currentSubject" [backRoute]="'/ucenje'"></la-header>
 
   <div *ngFor="let item of items" class="collection-item">
-    <p>
-      <ng-container *ngFor="let part of splitContent(item.content)">
-        <span
-          [ngClass]="{
-          'search-highlight': isMatch(part),
-          'active-highlight': isActiveMatch(part)
-          }"
+    <!-- Ako je PDF -->
+    <ng-container *ngIf="isPdf(item.content); else textContent">
+      <iframe
+  [src]="getSafePdfUrl(item.content)"
+  width="100%"
+  height="600px"
+  style="border: none; border-radius: 10px;"
+></iframe>
+    </ng-container>
+
+    <!-- Ako je tekst -->
+    <ng-template #textContent>
+      <p>
+        <ng-container *ngFor="let part of splitContent(item.content)">
+          <span
+            [ngClass]="{
+              'search-highlight': isMatch(part),
+              'active-highlight': isActiveMatch(part)
+            }"
           >
-          {{ part }}
-        </span>
-      </ng-container>
-    </p>
+            {{ part }}
+          </span>
+        </ng-container>
+      </p>
+    </ng-template>
   </div>
 
   <div class="actions">

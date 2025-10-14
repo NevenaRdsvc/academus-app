@@ -6,21 +6,28 @@
       <div class="input-container">
         <input
           type="text"
-          [(ngModel)]="imePrezime"
-          placeholder="Unesite Vaše Ime i Prezime"
+          [(ngModel)]="model.firstName"
+          placeholder="Unesite Vaše Ime"
+          class="input-field" />
+      </div>
+            <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="model.lastName"
+          placeholder="Unesite Vaše Prezime"
           class="input-field" />
       </div>
       <div class="input-container">
         <input
           type="email"
-          [(ngModel)]="email"
+          [(ngModel)]="model.email"
           placeholder="Unesite Vaš Email"
           class="input-field" />
       </div>
       <div class="input-container">
         <input
           type="password"
-          [(ngModel)]="password"
+          [(ngModel)]="model.password"
           placeholder="Unesite Lozinku"
           class="input-field" />
       </div>
@@ -28,7 +35,7 @@
         <button class="primary" (click)="signUp()">Napravi nalog</button>
       </div>
       <p class="signup-text">
-        Već imate nalog? 
+        Već imate nalog?
         <span class="signup-link" (click)="goToLogin()">Vrati se na Login</span>
       </p>
       <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>

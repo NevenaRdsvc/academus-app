@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --ssl --port 4304",
-    "start:staging": "ng serve -o --ssl --port 4304 --configuration=staging --host",
+    "start": "ng serve -o --port 4304",
+    "start:staging": "ng serve -o --port 4304 --configuration=staging --host",
     "build": "ng build --configuration=production",
     "build:staging": "ng build --configuration=staging",
     "watch": "ng build --watch --configuration development",
@@ -28,6 +28,7 @@
     "@ngx-translate/http-loader": "^16.0.0",
     "animate.css": "^4.1.1",
     "ladda": "^2.0.3",
+    "pdfjs-dist": "^5.4.296",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

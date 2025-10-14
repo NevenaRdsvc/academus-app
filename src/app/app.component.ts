@@ -1,9 +1,10 @@
-import { Component, HostBinding, NgZone, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+
 import { environment } from '../environments/environment';
 import { LS_USER_LANGUAGE } from './shared/constants';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'la-root',
@@ -13,10 +14,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-
-
   showLoadingSpinner = true;
   isDark = false;
+
   toggleDarkMode() {
     this.isDark = !this.isDark;
     document.body.classList.toggle('dark-mode', this.isDark);
@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private translateService: TranslateService,
-    private router: Router,
     private zone: NgZone
   ) {
     let languageToUse = environment.defaultLanguage;

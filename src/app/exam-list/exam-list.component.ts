@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+
 import { CollectionService } from '../shared/services/collection.service';
 import { Faculty } from '../shared/services/faculty.service';
 
@@ -37,7 +38,9 @@ export class ExamListComponent {
   }
 
   navigate(cardName: string) {
-    if (!this.selectedFaculty || !this.subjectName) return;
+    if (!this.selectedFaculty || !this.subjectName){
+      return;
+    }
 
     const normalizedFaculty = this.normalizeKey(this.selectedFaculty.name);
     const normalizedSubject = this.normalizeKey(this.subjectName);

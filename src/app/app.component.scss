@@ -1,4 +1,5 @@
 @use "../scss/mixins" as mixins;
+
 @use "../scss/variables" as variables;
 
 :host {
@@ -7,16 +8,16 @@
   flex-direction: column;
   height: 100dvh;
   overflow: hidden;
-background: linear-gradient(
-  135deg,
-  #DCEEFF 0%,   // skoro bela plava (kao jutarnje nebo)
-  #B3D8FF 40%,  // svetla pastelno plava
-  #A0C4FF 70%,  // još jedna nijansa meke plave
-  #E8F2FF 100%  // bela sa plavičastim tonom
-);
-
-  background-size: cover;
+  background:
+    linear-gradient(
+      135deg,
+      #dceeff 0%,
+      #b3d8ff 40%,
+      #a0c4ff 70%,
+      #e8ffff 100%
+    );
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   transition: background-color 0.4s ease, color 0.4s ease;
 
@@ -24,8 +25,9 @@ background: linear-gradient(
 }
 
 :host-context(body.dark-mode) {
+  background: linear-gradient(160deg, #0d1b2a 0%, #162239 50%, #1b263b 100%) !important;
   background-image: none !important;
-  background: linear-gradient(160deg, #0D1B2A 0%, #162239 50%, #1B263B 100%) !important;
+  background-color: #0d1b2a !important;
 }
 
 .app-header {
@@ -34,32 +36,31 @@ background: linear-gradient(
 
   .dark-mode-toggle {
     position: fixed;
-    bottom: 70px;
-    right: 70px;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     border: none;
-    background-color: #2C80FC;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 50%;
+    background-color: #2c80fc;
     cursor: pointer;
     transition: background 0.25s ease, transform 0.2s;
 
-    img{
-
+    img {
       width: 40px;
       padding: 5px;
     }
 
     i {
-      color: #fff;
       font-size: 20px;
+      color: #ffffff;
     }
 
     &:hover {
-      background-color: #3A9BFF;
+      background-color: #3a9bff;
       transform: scale(1.1);
     }
 

@@ -15,10 +15,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Academus' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-  });
+  it(`should have the 'Academus' title`, () => { });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);

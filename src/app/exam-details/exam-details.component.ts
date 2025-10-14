@@ -1,13 +1,12 @@
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TitleCasePipe } from '@angular/common';
-import { ExamService, ExamData } from '../shared/services/exam.service';
-import { SquareComponent } from '../shared/square/square.component';
-import { ExamTimerComponent } from '../shared/exam-timer/exam-timer.component';
-import { MessageService } from '../shared/services/message.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
+import { ExamTimerComponent } from '../shared/exam-timer/exam-timer.component';
+import { ExamData, ExamService } from '../shared/services/exam.service';
+import { MessageService } from '../shared/services/message.service';
+import { SquareComponent } from '../shared/square/square.component';
 
 @Component({
   selector: 'la-exam-details',
@@ -17,9 +16,9 @@ import { MessageService } from '../shared/services/message.service';
   styleUrls: ['./exam-details.component.scss']
 })
 export class ExamDetailsComponent implements OnInit {
-  facultyName!: string;
-  subject!: string;
-  year!: number;
+  facultyName: string="";
+  subject: string="";
+  year: number=0;
   examData: ExamData | null = null;
   showAnswers: boolean[] = [];
   timeUpOverlay: boolean = false;

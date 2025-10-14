@@ -1,9 +1,11 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+import { HeaderComponent } from '../shared/header/header.component';
 import { CollectionItem, CollectionService } from '../shared/services/collection.service';
 import { SquareComponent } from '../shared/square/square.component';
-import { HeaderComponent } from '../shared/header/header.component';
 
 @Component({
   selector: 'la-book',
@@ -21,7 +23,7 @@ export class BookComponent implements OnInit, AfterViewChecked {
   searchResults: string[] = [];
   currentSearchIndex = -1;
 
-  constructor(private collectionService: CollectionService) { }
+  constructor(private collectionService: CollectionService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.collectionService.selectedItemsObservable.subscribe(items => {
@@ -97,4 +99,12 @@ export class BookComponent implements OnInit, AfterViewChecked {
     this.currentSearchIndex =
       (this.currentSearchIndex - 1 + this.searchResults.length) % this.searchResults.length;
   }
+
+  isPdf(content: string): boolean {
+  return content.trim().toLowerCase().endsWith('.pdf');
+}
+
+getSafePdfUrl(url: string): SafeResourceUrl {
+  return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+}
 }

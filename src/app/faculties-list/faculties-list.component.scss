@@ -5,30 +5,32 @@
   margin-left: 10px;
 
   .faculty-title {
-    margin: 10px 0 0 0;
+    margin: 30px 0 0;
+    margin-bottom: 20px;
     font-size: 20px;
+    font-weight: 400;
     color: var(--alt);
     text-align: left;
-    font-weight: 400;
   }
 
   .faculty-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    width: 1150px;
     padding: 0;
     margin: 0 30px 20px 0;
     list-style: none;
+    gap: 20px;
 
     .faculty-item {
-      height: 170px;
-      overflow: hidden;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
-      border-radius: 10px;
-      background-color: var(--white);
-      transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
+      height: 170px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+      background-color: var(--white);
+      transition: transform 0.3s ease;
 
       &:hover {
         transform: scale(1.05);
@@ -53,18 +55,18 @@
           gap: 4px;
 
           .faculty-name {
+            margin: 0;
             font-size: 12px;
             color: var(--alt);
-            margin: 0;
             text-align: left;
           }
 
           .faculty-location {
-            font-size: 11px;
-            color: var(--alt);
             display: flex;
             align-items: center;
             margin: 0;
+            font-size: 11px;
+            color: var(--alt);
 
             .location-icon {
               width: 10px;
@@ -76,12 +78,12 @@
         .select-btn {
           padding: 8px 12px;
           margin-top: 10px;
-          border-radius: 30px;
           border: none;
-          background-color: #2c80fc;
-          color: white;
-          cursor: pointer;
+          border-radius: 30px;
           font-size: 10px;
+          color: white;
+          background-color: #2c80fc;
+          cursor: pointer;
           transition: background-color 0.25s ease;
 
           &:hover {
@@ -105,21 +107,21 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
 
   .faculty-confirm-box {
-    background: #fff;
+    max-width: 400px;
     padding: 32px 48px;
     border-radius: 12px;
-    text-align: center;
-    max-width: 400px;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    text-align: center;
 
     .info-image {
       width: 60%;
@@ -145,13 +147,13 @@
         cursor: pointer;
 
         &:first-child {
-          background-color: #1a73e8;
           color: white;
+          background-color: #1a73e8;
         }
 
         &:last-child {
-          background-color: #e3edff;
           color: #0a2b63;
+          background-color: #e3edff;
         }
       }
     }

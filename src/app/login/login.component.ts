@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { UserLoginModel } from '../shared/models/user';
+import { AccountService } from '../shared/services/account.service';
 
 @Component({
   selector: 'la-login',
@@ -11,46 +14,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
   errorMessage: string = '';
 
-  constructor(private router: Router) {
-    this.seedUser();
-  }
+  model: UserLoginModel = {
+    email: '',
+    password: ''
+  };
 
-  seedUser(): void {
-    const user = {
-      email: 'test@test.com',
-      password: 'test123',
-      name: 'Nevena Radosavljević',
-      avatar: 'assets/images/avatar-default.png'
-    };
-    localStorage.setItem('user', JSON.stringify(user));
-  }
+  constructor(private router: Router, private accountService: AccountService) { }
 
   login(): void {
-    const userStr = localStorage.getItem('user');
-    if (!userStr) {
-      this.errorMessage = 'Korisnik nije pronađen.';
-      return;
-    }
-
-    const user = JSON.parse(userStr);
-
-    if (
-      this.email.trim().toLowerCase() === user.email.toLowerCase() &&
-      this.password === user.password
-    ) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
-      localStorage.setItem('korisnikIme', user.name);
-      localStorage.setItem('korisnikAvatar', user.avatar);
-
-      this.errorMessage = '';
-      this.router.navigate(['/home']);
-    } else {
-      this.errorMessage = 'Pogrešan email ili lozinka.';
-    }
+    this.accountService.signIn(this.model).subscribe({
+      next: _ => this.router.navigate(['/home']),
+      error: errors => console.log(errors)
+    });
   }
 
   goToSignUp(): void {
