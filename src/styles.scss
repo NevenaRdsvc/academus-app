@@ -440,7 +440,7 @@ body.dark-mode {
 
   .pomodoro-card {
     .buttons {
-      color: black;
+      color: black !important;
     }
   }
 
@@ -752,10 +752,6 @@ body.dark-mode {
     }
   }
 
-  .wrapper {
-    background-color: #22324b;
-  }
-
   h2,
   h3,
   p {
@@ -914,15 +910,60 @@ body.dark-mode {
     }
   }
 
-  .controls {
-    button {
-      &:first-child {
-        color: #000000 !important;
+  .btn {
+    color: #000000 !important;
 
-        &:hover {
-          background-color: #f8d7da;
-        }
+    &:hover {
+      background-color: #f8d7da;
+    }
+
+    body.dark-mode & {
+      color: #ffffff !important;
+      background-color: #2c3e50;
+
+      &:hover {
+        background-color: #3a4a63;
       }
     }
+  }
+
+  .custom-dropdown .selected {
+    border: 1px solid #c0c0c0 !important;
+    color: rgb(255, 255, 255) !important;
+    background-color: #1e2a3f !important;
+  }
+
+  .custom-dropdown .arrow {
+    border-top: 6px solid #ffffff !important;
+  }
+
+  .custom-dropdown .options {
+    border: 1px solid #e5e5e5 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #1e2a3f !important;
+  }
+
+  .custom-dropdown .options li {
+    color: rgb(255, 255, 255) !important;
+  }
+
+  .custom-dropdown .options li:hover {
+    background-color: #293954 !important;
+  }
+
+  .timer-inner {
+    h2 {
+      border: 1px solid var(--white);
+      color: #ffffff !important;
+      background-color: #1e2a3f !important;
+    }
+  }
+
+  .timer-button {
+    color: white !important;
+  }
+
+  .wrapper-welcome {
+    background-color: #1e2a3f !important;
   }
 }

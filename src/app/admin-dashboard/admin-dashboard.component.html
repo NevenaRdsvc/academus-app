@@ -35,15 +35,26 @@
       <div class="form-grid">
         <input type="text" [(ngModel)]="newMaterial.title" placeholder="Naslov" />
 
-        <select [(ngModel)]="newMaterial.subject">
-          <option value="" disabled>Izaberite predmet</option>
-          <option *ngFor="let s of subjects" [value]="s">{{ s }}</option>
-        </select>
+        <div class="custom-dropdown" [class.open]="dropdownOpen" (click)="toggleDropdown()">
+          <div class="selected">
+            {{ selectedSubject || 'Izaberite predmet' }}
+            <span class="arrow"></span>
+          </div>
+          <ul class="options">
+            <li *ngFor="let s of subjects" (click)="selectSubject(s, $event)">{{ s }}</li>
+          </ul>
+        </div>
 
-        <select [(ngModel)]="newMaterial.type">
-          <option value="zbirka">Zbirka</option>
-          <option value="stari-rokovi">Stari rokovi</option>
-        </select>
+   <div class="custom-dropdown" [class.open]="typeDropdownOpen" (click)="toggleTypeDropdown()">
+  <div class="selected">
+    {{ newMaterial.type || 'Izaberite tip materijala' }}
+    <span class="arrow"></span>
+  </div>
+  <ul class="options">
+    <li (click)="selectType('zbirka', $event)">Zbirka</li>
+    <li (click)="selectType('stari-rokovi', $event)">Stari rokovi</li>
+  </ul>
+</div>
 
         <label class="upload-btn">
           Izaberite fajl

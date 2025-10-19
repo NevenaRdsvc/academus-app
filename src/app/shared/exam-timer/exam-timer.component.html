@@ -12,7 +12,7 @@
           <h2>{{ formattedTime }}</h2>
         </div>
         <div class="controls">
-          <button (click)="toggleTimer()">{{ isRunning ? 'Stop' : 'Start' }}</button>
+          <button class="timer-button" (click)="toggleTimer()">{{ isRunning ? 'Stop' : 'Start' }}</button>
           <button (click)="resetTimer()">Reset</button>
         </div>
       </ng-template>

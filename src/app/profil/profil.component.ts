@@ -17,10 +17,15 @@ import { SquareComponent } from '../shared/square/square.component';
 export class ProfilComponent {
   loggedUser = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
   ime = this.loggedUser.name || 'Korisnik';
-  avatarUrl = this.loggedUser.avatar || 'assets/images/ana.png';
+ avatarUrl = this.loggedUser.avatar || 'assets/images/ana.jpg';
   showPassword = false;
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService) {
+  if (!this.loggedUser.avatar) {
+    this.loggedUser.avatar = 'assets/images/ana.jpg';
+    localStorage.setItem('loggedInUser', JSON.stringify(this.loggedUser));
+  }
+}
 
   onAvatarChange(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0];
