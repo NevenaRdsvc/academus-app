@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FlashcardSet, FlashcardsService } from '../shared/services/flashcards.service';
-import { MessageComponent } from '../shared/message/message.component';
-import { MessageService } from '../shared/services/message.service';
+import { Router } from '@angular/router';
+
 import { HeaderComponent } from '../shared/header/header.component';
+import { MessageComponent } from '../shared/message/message.component';
+import { FlashcardSet, FlashcardsService } from '../shared/services/flashcards.service';
+import { MessageService } from '../shared/services/message.service';
 import { SquareComponent } from '../shared/square/square.component';
-import { InputComponent } from '../shared/input/input.component';
 
 @Component({
   selector: 'la-flashcards-create',

@@ -1,52 +1,18 @@
-<la-square>
+<la-square [bgColor]="'#212121'">
 
-  <la-header [title]="currentSubject" [backRoute]="'/ucenje'"></la-header>
+  <button class="local-back-button" (click)="goBack()">
+    <img src="assets/images/back-arrow.png" alt="Nazad" />
+  </button>
 
-  <div *ngFor="let item of items" class="collection-item">
-    <!-- Ako je PDF -->
-    <ng-container *ngIf="isPdf(item.content); else textContent">
-      <iframe
-  [src]="getSafePdfUrl(item.content)"
-  width="100%"
-  height="600px"
-  style="border: none; border-radius: 10px;"
-></iframe>
-    </ng-container>
+  <div class="book-content">
+    <div *ngFor="let item of items" class="collection-item">
+      <div *ngIf="item.isPdf" class="pdf-container">
+        <iframe [src]="item.content | safeUrl"></iframe>
+      </div>
 
-    <!-- Ako je tekst -->
-    <ng-template #textContent>
-      <p>
-        <ng-container *ngFor="let part of splitContent(item.content)">
-          <span
-            [ngClass]="{
-              'search-highlight': isMatch(part),
-              'active-highlight': isActiveMatch(part)
-            }"
-          >
-            {{ part }}
-          </span>
-        </ng-container>
-      </p>
-    </ng-template>
-  </div>
-
-  <div class="actions">
-    <button (click)="toggleSearch()" title="Search">
-      <i class="fa fa-search"></i>
-    </button>
-    <div *ngIf="searchActive" class="search-wrapper">
-      <input
-        type="text"
-        placeholder="Unesi reč..."
-        [(ngModel)]="searchQuery"
-        (input)="performSearch()"
-      />
-      <span class="search-result">
-        {{ searchResults.length ? currentSearchIndex + 1 : 0 }} / {{ searchResults.length }}
-      </span>
-      <button (click)="searchPrev()">&lt;</button>
-      <button (click)="searchNext()">&gt;</button>
+      <div *ngIf="!item.isPdf" class="text-container">
+        <p>{{ item.content }}</p>
+      </div>
     </div>
   </div>
-
 </la-square>

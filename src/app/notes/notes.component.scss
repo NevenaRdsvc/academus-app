@@ -80,20 +80,20 @@
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
           background-color: #d7e7ff;
           gap: 8px;
-
-          .color-circle {
-            width: 24px;
-            height: 24px;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-
-            &:hover {
-              transform: scale(1.2);
-            }
-          }
         }
+      }
+    }
+
+    .color-circle {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.2);
       }
     }
 

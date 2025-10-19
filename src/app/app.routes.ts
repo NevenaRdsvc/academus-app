@@ -60,8 +60,18 @@ export const routes: Routes = [
     loadComponent: () => import('./calender/calender.component').then(c => c.CalenderComponent),
   },
   {
+  path: 'admin',
+  loadComponent: () => import('./admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent)
+},
+{
+  path: 'welcome',
+  loadComponent: () => import('./welcome/welcome.component').then(m => m.WelcomeComponent)
+},
+
+
+  {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/welcome',
     pathMatch: 'full'
   }
 ];

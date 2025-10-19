@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SquareComponent } from '../shared/square/square.component';
-import { ExamListComponent } from '../exam-list/exam-list.component';
-import { FacultyService, Faculty } from '../shared/services/faculty.service';
-import { AsyncPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+import { ExamListComponent } from '../exam-list/exam-list.component';
+import { Faculty, FacultyService } from '../shared/services/faculty.service';
+import { SquareComponent } from '../shared/square/square.component';
 
 @Component({
   selector: 'la-learning',

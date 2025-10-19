@@ -1,13 +1,13 @@
 <la-square>
+
   <div *ngIf="selectedFaculties.length > 0">
     <div *ngFor="let faculty of selectedFaculties" class="faculty-section">
       <div class="faculty-banner" [style.background-image]="'url(' + faculty.banner + ')'">
-  <div class="faculty-banner-text">
-    <h2>{{ faculty.name }}</h2>
-    <p class="location-p">{{ faculty.location }}</p>
-  </div>
-</div>
-
+        <div class="faculty-banner-text">
+          <h2>{{ faculty.name }}</h2>
+          <p class="location-p">{{ faculty.location }}</p>
+        </div>
+      </div>
       <div *ngFor="let subject of faculty.entranceExamSubjects">
         <la-exam-list [selectedFaculty]="faculty" [subjectName]="subject"></la-exam-list>
       </div>
@@ -20,4 +20,5 @@
       <p>Molimo Vas izaberite Fakultet!</p>
     </div>
   </div>
+
 </la-square>

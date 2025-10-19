@@ -1,8 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnDestroy } from '@angular/core';
+
 import { interval, Subscription } from 'rxjs';
-import { SquareComponent } from '../shared/square/square.component';
+
 import { HeaderComponent } from '../shared/header/header.component';
+import { SquareComponent } from '../shared/square/square.component';
 
 @Component({
   selector: 'la-pomodoro',
@@ -12,7 +14,7 @@ import { HeaderComponent } from '../shared/header/header.component';
   styleUrls: ['./pomodoro.component.scss']
 })
 export class PomodoroComponent implements OnDestroy {
-  workDuration = 25; // minutes
+  workDuration = 25;
   breakDuration = 5;
   remainingSeconds = this.workDuration * 60;
   timerRunning = false;

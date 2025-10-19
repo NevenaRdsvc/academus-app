@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export interface CollectionItem {
-    title: string;
+      title: string;
     content: string;
+    isPdf?: boolean;
+    parsedContent?: string[];
 }
 
 export interface FacultyCollection {
@@ -28,8 +30,8 @@ export class CollectionService {
                     items: [
                         {
                             title: 'Mat1',
-                            // eslint-disable-next-line max-len
-                           content: 'assets/docs/fon-mata.pdf'
+                           content: 'assets/docs/fon-mata.pdf',
+                           isPdf: true
                         }
                     ]
                 },

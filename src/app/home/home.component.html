@@ -1,12 +1,82 @@
 <la-square>
   <h2>Fakulteti</h2>
 
-  <la-input
-    [type]="'text'"
-    [placeholder]="'Pretraži fakultet'"
-    [icon]="'assets/images/logo-search.png'"
-    [(value)]="searchQuery">
-  </la-input>
+  <div class="search-filter-container">
+    <la-input
+      [type]="'text'"
+      [placeholder]="'Pretraži fakultet po nazivu'"
+      [icon]="'assets/images/logo-search.png'"
+      [(value)]="searchQuery"
+      (enterPressed)="applyFilters()">
+    </la-input>
 
-  <la-faculties-list [searchQuery]="searchQuery"></la-faculties-list>
+    <div class="filter-container">
+      <button class="filter-button" (click)="toggleFilters()">
+        <img src="assets/images/filter-icon.png" alt="Filtriraj" class="filter-icon" />
+      </button>
+
+      <div class="filter-dropdown" *ngIf="showFilters">
+
+        <div class="filter-block" [class.open]="showCityDropdown">
+          <div class="filter-header" (click)="toggleCityDropdown()">
+            Grad: {{ selectedCity || 'Svi gradovi' }}
+          </div>
+          <div class="filter-options">
+            <ul>
+              <li *ngFor="let city of cities" (click)="selectCity(city); $event.stopPropagation()">
+                {{ city }}
+              </li>
+              <li (click)="selectCity(''); $event.stopPropagation()">Svi gradovi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="filter-block" [class.open]="showTypeDropdown">
+          <div class="filter-header" (click)="toggleTypeDropdown()">
+            Tip fakulteta: {{ selectedType || 'Svi tipovi' }}
+          </div>
+          <div class="filter-options">
+            <ul>
+              <li (click)="selectType('technical'); $event.stopPropagation()">Tehnički</li>
+              <li (click)="selectType('medical'); $event.stopPropagation()">Medicinski</li>
+              <li (click)="selectType('pharmacy'); $event.stopPropagation()">Farmaceutski</li>
+              <li (click)="selectType('art'); $event.stopPropagation()">Umetnički</li>
+              <li (click)="selectType('social'); $event.stopPropagation()">Društveni</li>
+              <li (click)="selectType('economic'); $event.stopPropagation()">Ekonomski</li>
+              <li (click)="selectType('sports'); $event.stopPropagation()">Sportski</li>
+              <li (click)="selectType(''); $event.stopPropagation()">Svi tipovi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="filter-block" [class.open]="showExamDropdown">
+          <div class="filter-header" (click)="toggleExamDropdown()">
+            Prijemni ispit: {{ selectedExam || 'Svi ispiti' }}
+          </div>
+          <div class="filter-options">
+            <ul>
+              <li *ngFor="let exam of exams" (click)="selectExam(exam); $event.stopPropagation()">
+                {{ exam }}
+              </li>
+              <li (click)="selectExam(''); $event.stopPropagation()">Svi ispiti</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <button class="reset" (click)="resetFilters()">Poništi filtere</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <la-faculties-list
+    [attr.data-key]="filterKey"
+    [searchQuery]="searchQuery"
+    [cityFilter]="selectedCity"
+    [typeFilter]="selectedType"
+    [examFilter]="selectedExam">
+  </la-faculties-list>
+
+  <la-tutorial-modal></la-tutorial-modal>
 </la-square>

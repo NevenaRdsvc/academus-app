@@ -19,7 +19,11 @@ export class InputComponent {
   @Input() value: string = '';
 
   @Output() valueChange = new EventEmitter<string>();
+  @Output() enterPressed = new EventEmitter<void>();
 
+onEnter() {
+  this.enterPressed.emit();
+}
 
   onValueChange(newValue: string) {
     this.value = newValue;

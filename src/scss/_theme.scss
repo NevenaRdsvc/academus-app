@@ -1,9 +1,25 @@
 body {
   --white: #ffffff;
   --black: #000000;
-  --accent: #68a5ca;
-  --accent-20: #4e809f;
-  --alt: #160028;
-  --alt-20: #3a6e77;
-  --dark-blue: #181f27;
+  --accent: #2c80fc;
+  --accent-20: #1e5fcc;
+  --text-primary: #e0e6ed;
+  --text-secondary: #aab4c3;
+  --bg-dark: #1e2a3f;
+  --bg-dark-light: #22324b;
+  --bg-dark-darker: #0b1526;
+  --overlay-bg: rgba(15, 23, 42, 0.85);
+  --correct: #66ff7f;
+  --wrong: #ff7b7b;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --color-text-primary: #e0e6ed;
+  --color-text-secondary: #aab4c3;
+  --color-bg: #1e2a3f;
+  --color-bg-dark: #0b1526;
+  --color-bg-light: #22324b;
+  --color-accent: #3a9bff;
+  --color-success: #27ae60;
+  --color-error: #e74c3c;
+  --color-white: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.5);
 }

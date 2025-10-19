@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from '../shared/menu/menu.component';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Flashcard, FlashcardSet, FlashcardsService } from '../shared/services/flashcards.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { HeaderComponent } from '../shared/header/header.component';
+import { Flashcard, FlashcardSet, FlashcardsService } from '../shared/services/flashcards.service';
 import { SquareComponent } from '../shared/square/square.component';
 
 @Component({

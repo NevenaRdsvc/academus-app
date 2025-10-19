@@ -424,7 +424,6 @@ export class ExamService {
             }
         },
 
-        // FTN
         'fakultet-tehnickih-nauka': {
             'matematika': {
                 2025: {

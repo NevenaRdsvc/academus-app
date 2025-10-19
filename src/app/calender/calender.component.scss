@@ -36,7 +36,7 @@
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
+    background: var(--white);
     flex: 3;
   }
 
@@ -118,10 +118,10 @@
         margin: 3px 2px;
         border-radius: 6px;
         font-size: 14px;
-        color: white;
+        color: var(--white);
         text-overflow: ellipsis;
         white-space: nowrap;
-        background-color: #5197ff;
+        background-color: var(--accent);
         gap: 1px;
       }
     }
@@ -156,7 +156,7 @@
         border: none;
         border-radius: 20px;
         font-weight: 500;
-        color: white;
+        color: var(--white);
         background-color: #2c80fc;
         cursor: pointer;
 
@@ -166,7 +166,7 @@
         }
 
         &:hover:not(:disabled) {
-          background-color: #1e5fcc;
+          background-color: var(--accent-20);
         }
       }
     }
@@ -224,13 +224,13 @@
     border: 1px solid #cccccc;
     border-radius: 100px !important;
     background-color: #d7e5ff !important;
-    background-color: #ffffff;
+    background-color: var(--white);
     cursor: pointer;
     gap: 5px;
 
     i {
       font-size: 16px;
-      color: #2c80fc !important;
+      color: var(--accent) !important;
     }
 
     &:hover {

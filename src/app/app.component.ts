@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { environment } from '../environments/environment';
 import { LS_USER_LANGUAGE } from './shared/constants';
+import { AccountService } from './shared/services/account.service';
 
 @Component({
   selector: 'la-root',
@@ -17,15 +18,10 @@ export class AppComponent implements OnInit {
   showLoadingSpinner = true;
   isDark = false;
 
-  toggleDarkMode() {
-    this.isDark = !this.isDark;
-    document.body.classList.toggle('dark-mode', this.isDark);
-    localStorage.setItem('darkMode', this.isDark ? 'true' : 'false');
-  }
-
   constructor(
     private translateService: TranslateService,
-    private zone: NgZone
+    private zone: NgZone,
+    public accountService: AccountService
   ) {
     let languageToUse = environment.defaultLanguage;
     this.translateService.setDefaultLang(languageToUse);
@@ -44,5 +40,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.zone.onStable.subscribe(() => (this.showLoadingSpinner = false));
+
+    if (this.accountService.authenticated()) {
+      this.accountService.getMyUserInfo().subscribe({
+        next: (user) => (this.accountService.user = user),
+        error: (err) => console.error('User info load error', err)
+      });
+    }
+  }
+
+  toggleDarkMode() {
+    this.isDark = !this.isDark;
+    document.body.classList.toggle('dark-mode', this.isDark);
+    localStorage.setItem('darkMode', this.isDark ? 'true' : 'false');
   }
 }

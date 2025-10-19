@@ -13,8 +13,10 @@ import { MessageService } from '../shared/services/message.service';
   styleUrls: ['./faculties-list.component.scss']
 })
 export class FacultiesListComponent {
-  @Input() searchQuery: string = '';
-
+    @Input() searchQuery: string = '';
+  @Input() cityFilter: string = '';
+  @Input() typeFilter: string = '';
+  @Input() examFilter: string = '';
   technicalTitle = 'Tehnički Fakulteti';
   medicalTitle = 'Medicinski Fakulteti';
   pharmacyTitle = 'Farmaceutski Fakulteti';
@@ -79,7 +81,6 @@ async openConfirmation(faculty: Faculty) {
     });
   }
 
-  // Filterovane liste sa searchQuery
   get filteredTechnical() { return this.filterFaculties(this.technicalFaculties); }
   get filteredMedical() { return this.filterFaculties(this.medicalFaculties); }
   get filteredPharmacy() { return this.filterFaculties(this.pharmacyFaculties); }
@@ -89,9 +90,28 @@ async openConfirmation(faculty: Faculty) {
   get filteredSports() { return this.filterFaculties(this.sportsFaculties); }
 
   private filterFaculties(faculties: Faculty[]): Faculty[] {
-    if (!this.searchQuery.trim()) return faculties;
-    return faculties.filter(f => f.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
-  }
+  return faculties.filter(faculty => {
+    const matchesName =
+      !this.searchQuery ||
+      faculty.name.toLowerCase().includes(this.searchQuery.toLowerCase());
+
+    const matchesCity =
+      !this.cityFilter ||
+      faculty.location.toLowerCase() === this.cityFilter.toLowerCase();
+
+    const matchesType =
+      !this.typeFilter ||
+      faculty.type.toLowerCase() === this.typeFilter.toLowerCase();
+
+    const matchesExam =
+      !this.examFilter ||
+      faculty.entranceExamSubjects.some(
+        subject => subject.toLowerCase() === this.examFilter.toLowerCase()
+      );
+
+    return matchesName && matchesCity && matchesType && matchesExam;
+  });
+}
 
   resolveLocalConfirm(result: boolean) {
     if (this.localConfirmResolver) {

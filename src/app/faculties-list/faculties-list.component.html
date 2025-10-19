@@ -1,7 +1,7 @@
 <la-message></la-message>
 
-<div class="faculty-container" *ngFor="let group of [
- { title: technicalTitle, faculties: filteredTechnical },
+<ng-container *ngFor="let group of [
+  { title: technicalTitle, faculties: filteredTechnical },
   { title: medicalTitle, faculties: filteredMedical },
   { title: pharmacyTitle, faculties: filteredPharmacy },
   { title: artTitle, faculties: filteredArt },
@@ -9,26 +9,27 @@
   { title: economicTitle, faculties: filteredEconomic },
   { title: sportsTitle, faculties: filteredSports }
 ]">
-
-  <h2 class="faculty-title">{{ group.title }}</h2>
-  <ul class="faculty-list">
-    <li *ngFor="let faculty of group.faculties" class="faculty-item">
-      <img [src]="faculty.image" class="faculty-image">
-      <div class="faculty-info">
-        <div class="faculty-text">
-          <h3 class="faculty-name">{{ faculty.name }}</h3>
-          <div class="faculty-location">{{ faculty.location }}</div>
+  <div class="faculty-container" *ngIf="group.faculties.length > 0">
+    <h2 class="faculty-title">{{ group.title }}</h2>
+    <ul class="faculty-list">
+      <li *ngFor="let faculty of group.faculties" class="faculty-item">
+        <img [src]="faculty.image" class="faculty-image">
+        <div class="faculty-info">
+          <div class="faculty-text">
+            <h3 class="faculty-name">{{ faculty.name }}</h3>
+            <div class="faculty-location">{{ faculty.location }}</div>
+          </div>
+          <button
+            class="select-btn"
+            [class.selected]="isSelected(faculty)"
+            (click)="openConfirmation(faculty)">
+            {{ isSelected(faculty) ? 'Izabrano' : 'Izaberi' }}
+          </button>
         </div>
-        <button
-          class="select-btn"
-          [class.selected]="isSelected(faculty)"
-          (click)="openConfirmation(faculty)">
-          {{ isSelected(faculty) ? 'Izabrano' : 'Izaberi' }}
-        </button>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</ng-container>
 
 <div class="faculty-confirm-backdrop" *ngIf="showLocalConfirm">
   <div class="faculty-confirm-box">

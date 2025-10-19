@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { MenuComponent } from '../shared/menu/menu.component';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { HeaderComponent } from '../shared/header/header.component';
+import { MessageComponent } from '../shared/message/message.component';
 import { FlashcardSet, FlashcardsService } from '../shared/services/flashcards.service';
 import { MessageService } from '../shared/services/message.service';
-import { MessageComponent } from '../shared/message/message.component';
-import { HeaderComponent } from '../shared/header/header.component';
 import { SquareComponent } from '../shared/square/square.component';
-
 
 @Component({
   selector: 'la-flashcards-main',

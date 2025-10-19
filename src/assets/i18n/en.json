@@ -1,36 +1,26 @@
 {
-  "info": {
-
-  },
-  "label": {
-    "Academus": "Academus",
-    "close": "Close"
-  },
-  "errors": {
-    "RequestInvalid": "",
-    "Unauthorized": "",
-    "RequirementsNotMet": "",
-    "IdentityError": "{{details}}",
-    "EntityDoesNotExist": "{{entityName}} does not exist.",
-    "EntityAlreadyExists": "{{entityName}} already exists.",
-    "InternalServerError": "{{details}}",
-    "InvalidCredentials": "Invalid credentials.",
-    "EmptyFile": "",
-    "MaxFileSizeReached": "Couldn't upload. Maximum file size is {{maxSizeInMb}} MB.",
-    "CanOnlyUploadPhotos": "Image load failed. Unsupported media type or corrupted file.",
-    "WrongAspectRatio": "",
-    "MissingAspectRatio": "",
-    "EmailNotSent": "Unexpected error, we couldn't send the email, try again later.",
-    "AlreadyConfirmedEmail": "This email address has already been confirmed",
-    "InvalidConfirmationCode": "This confirmation code is invalid",
-    "InvalidGoogleAccount": "This Google account isn't valid, register first.",
-    "ConfirmationCodeExpired": "This confirmation code has expired.",
-    "Name is required." : "Name is required."
-  },
-  "confirmMessages": {
-
-  },
-  "placeholders": {
-
+  "admin": {
+    "logoTitle": "Academus",
+    "menu": {
+      "addMaterials": "Add materials",
+      "registeredUsers": "Registered users",
+      "logout": "Logout"
+    },
+    "materials": {
+      "title": "Title",
+      "subject": "Subject",
+      "chooseSubject": "Choose subject",
+      "type": "Type",
+      "collection": "Collection",
+      "oldExams": "Old exams",
+      "chooseFile": "Choose file",
+      "add": "Add",
+      "view": "View",
+      "delete": "Delete",
+      "fillAllFields": "Please fill all fields"
+    },
+    "users": {
+      "registered": "Registered users"
+    }
   }
 }

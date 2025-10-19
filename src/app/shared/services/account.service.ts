@@ -79,4 +79,8 @@ export class AccountService {
 
     return JSON.parse(jsonPayload);
   }
+
+  getMyUserInfo(): Observable<UserMeModel> {
+  return this.http.get<UserMeModel>(`${this.API_ENDPOINT}/me`);
+}
 }
